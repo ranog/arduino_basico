@@ -1,3 +1,5 @@
+// Projeto 2 – Sinalizador de código Morse S.O.S.
+
 byte led = 10;
 
 void setup() {
