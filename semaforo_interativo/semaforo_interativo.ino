@@ -18,6 +18,9 @@ int cross_time = 5000;
 // tempo desde que o botão foi pressionado
 unsigned long change_time;
 
+// prototipos
+void change_lights();
+
 void setup(){
   pinMode(car_red, OUTPUT);
   pinMode(car_yellow, OUTPUT);
@@ -35,7 +38,7 @@ void setup(){
 void loop(){
   /* verifica se o botão foi pressionado e se transcorreram 
   5 segundos desde a última vez que isso ocorreu */
-  int state = digitalRead(button);
+  boolean state = digitalRead(button);
   
   if(state == HIGH && (millis() - change_time) > 5000){
     // chama a funçao para alterar as luzes
@@ -57,7 +60,7 @@ void change_lights(){
   delay(cross_time);
   
   // pisca o verde dos pedestres
-  for(int i = 0; i < 10; i++){
+  for(byte i = 0; i < 10; i++){
     digitalWrite(pedestre_green, HIGH);
     delay(250);
     
